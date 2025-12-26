@@ -41,12 +41,19 @@ module hollow_wedge(width, depth,
 	inner_width = width - 2 * thickness;
 	inner_depth = depth - 3 * thickness;
 	inner_height = height - 4 * thickness;
-	
+
 	difference() {
 		wedge(width, depth, height);
+
 		translate([thickness,
 			thickness, thickness])
-		wedge(inner_width,
+		wedge((inner_width - thickness) / 2,
+			inner_depth,
+			inner_height);
+
+		translate([1.5 * thickness + inner_width / 2,
+			thickness, thickness])
+		wedge((inner_width - thickness) / 2,
 			inner_depth,
 			inner_height);
 	}
