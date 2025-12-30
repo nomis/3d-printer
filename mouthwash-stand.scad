@@ -45,13 +45,13 @@ module hollow_wedge(width, depth,
 	difference() {
 		wedge(width, depth, height);
 
-		translate([thickness,
+		* translate([thickness,
 			thickness, thickness])
 		wedge((inner_width - thickness) / 2,
 			inner_depth,
 			inner_height);
 
-		translate([1.5 * thickness + inner_width / 2,
+		* translate([1.5 * thickness + inner_width / 2,
 			thickness, thickness])
 		wedge((inner_width - thickness) / 2,
 			inner_depth,
