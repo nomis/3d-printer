@@ -2,22 +2,21 @@ $fn = 30;
 
 base_depth = 1.4;
 wall_thickness = 2;
-indent_depth = 0.6;
-indent_width = 5;
+margin_top = 5;
 
 ont_width = 109.9;
-ont_height = 108.8;
+ont_height = 108.8 - margin_top;
 
 ont_screw_mount = 60;
-ont_screw_width = 22;
+ont_screw_width = 23;
 ont_screw_height = 22;
-ont_screw_pos_y = 52;
+ont_screw_pos_y = 52 - margin_top;
 ont_screw_round = 2;
 
 ont_feet_d = 11;
-ont_feet_margin_t = 13;
+ont_feet_margin_t = 15 - margin_top;
 ont_feet_margin_b = 9;
-ont_feet_margin_lr = 9;
+ont_feet_margin_lr = 7.5;
 
 ups_width = 99;
 ups_depth = 109;
@@ -59,15 +58,6 @@ module ont_base() {
 			translate([ont_width / 2 - ont_screw_width / 2 + ont_screw_mount / 2, ont_height - (ont_screw_pos_y + ont_screw_height / 2)])
 			square([ont_screw_width, ont_screw_height]);
 		};
-	
-		// indent
-		translate([0, -1, indent_depth])
-		linear_extrude(base_depth - indent_depth + 1)
-		square([ont_width + 1, indent_width]);
-
-		translate([0, ont_height - indent_width, indent_depth])
-		linear_extrude(base_depth - indent_depth + 1)
-		square([ont_width + 1, indent_width + 2]);
 	};
 }
 
