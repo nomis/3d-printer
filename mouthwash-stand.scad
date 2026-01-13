@@ -1,5 +1,5 @@
 width = 90;
-wedge_depth = 105;
+wedge_depth = 85;
 base_depth = 370;
 height = 143;
 
