@@ -4,7 +4,7 @@ front_size = 87;
 back_size = 86;
 spacer_thickness = 3;
 spacer_depth = 20;
-spacer_rotate_deg = -3;
+spacer_rotate_deg = -2.25;
 
 back_supports_depth = 3;
 back_supports_border = 5;
