@@ -14,9 +14,9 @@ ont_screw_pos_y = 52 - margin_top;
 ont_screw_round = 2;
 
 ont_feet_d = 11;
-ont_feet_margin_t = 11 - margin_top;
+ont_feet_margin_t = 12 - margin_top;
 ont_feet_margin_b = 9;
-ont_feet_margin_lr = 7.5;
+ont_feet_margin_lr = 8;
 
 ups_width = 99;
 ups_depth = 109;
