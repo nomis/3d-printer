@@ -28,6 +28,10 @@ ups_tray_height = 70;
 gap = 25;
 offset = 0;
 
+support_height_l = 41;
+support_height_r = 40;
+support_depth = 15;
+
 module ont_base() {
 	difference() {
 		linear_extrude(base_depth)
@@ -99,6 +103,12 @@ module connector() {
 
 }
 
+module support() {
+	linear_extrude(support_depth)
+	offset(wall_thickness) offset(-wall_thickness)
+	polygon([[0, 2 * wall_thickness], [0, -support_height_l], [ups_width + ups_padding + 2 * wall_thickness, -support_height_r], [ups_width + ups_padding + 2 * wall_thickness, 2 * wall_thickness]]);
+}
+
 translate([ups_width + ups_padding + wall_thickness, offset, 0]) {
 	translate([gap, 0, 0]) ont_base();
 
@@ -106,3 +116,4 @@ translate([ups_width + ups_padding + wall_thickness, offset, 0]) {
 	connector();
 }
 ups_base();
+support();
