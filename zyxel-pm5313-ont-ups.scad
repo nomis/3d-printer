@@ -104,9 +104,17 @@ module connector() {
 }
 
 module support() {
-	linear_extrude(support_depth)
-	offset(wall_thickness) offset(-wall_thickness)
-	polygon([[0, 2 * wall_thickness], [0, -support_height_l], [ups_width + ups_padding + 2 * wall_thickness, -support_height_r], [ups_width + ups_padding + 2 * wall_thickness, 2 * wall_thickness]]);
+	difference() {
+		linear_extrude(support_depth)
+		offset(wall_thickness) offset(-wall_thickness)
+		polygon([[0, 2 * wall_thickness], [0, -support_height_l], [ups_width + ups_padding + 2 * wall_thickness, -support_height_r], [ups_width + ups_padding + 2 * wall_thickness, 2 * wall_thickness]]);
+
+		// cut ups out
+		translate([0, 0, base_depth])
+		linear_extrude(ups_height + ups_padding)
+		translate([wall_thickness, wall_thickness])
+		square([ups_width + ups_padding, ups_depth + ups_padding]);
+	}
 }
 
 translate([ups_width + ups_padding + wall_thickness, offset, 0]) {
